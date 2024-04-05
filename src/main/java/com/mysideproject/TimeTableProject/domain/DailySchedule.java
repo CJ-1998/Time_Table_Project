@@ -11,4 +11,8 @@ public class DailySchedule {
     private LocalDate date;
     private List<Plan> dailyPlans;
 
+    public DailySchedule(LocalDate date, List<Plan> dailyPlans) {
+        this.date = date;
+        this.dailyPlans = dailyPlans;
+    }
 }

@@ -10,4 +10,10 @@ import lombok.Setter;
 public class WeeklySchedule {
     private LocalDate startDate;
     private List<DailySchedule> weeklyPlans;
+
+    public WeeklySchedule(LocalDate startDate,
+                          List<DailySchedule> weeklyPlans) {
+        this.startDate = startDate;
+        this.weeklyPlans = weeklyPlans;
+    }
 }
