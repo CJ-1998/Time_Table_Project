@@ -12,6 +12,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class WeeklyScheduleService {
 
+    public static final int DAY_COUNT = 7;
+    public static final int START_HOUR = 0;
+    public static final int START_MINUTE = 0;
+    public static final int HOUR_COUNT = 24;
+    public static final int INTERVAL_MINUTE = 30;
+
     public WeeklySchedule initWeeklySchedule() {
         LocalDate date = LocalDate.of(2024, 4, 1);
         List<DailySchedule> weeklyPlans = getWeeklyPlans(date);
@@ -25,7 +31,7 @@ public class WeeklyScheduleService {
 
         int dayOfMonth = date.getDayOfMonth();
 
-        for (int day = 0; day < 7; day++) {
+        for (int day = 0; day < DAY_COUNT; day++) {
             LocalDate newDate = date.withDayOfMonth(dayOfMonth + day);
             DailySchedule dailySchedule = initDailySchedule(newDate);
             weeklyPlans.add(dailySchedule);
@@ -44,11 +50,11 @@ public class WeeklyScheduleService {
     private List<Plan> getDailyPlans(LocalDate date) {
         List<Plan> dailyPlans = new ArrayList<>();
 
-        LocalTime startOfDayTime = LocalTime.of(0, 0);
+        LocalTime startOfDayTime = LocalTime.of(START_HOUR, START_MINUTE);
         LocalTime startTime = startOfDayTime;
 
-        for (int timeCount = 0; timeCount < 24 * 2; timeCount++) {
-            LocalTime endTime = startTime.plusMinutes(30);
+        for (int timeCount = 0; timeCount < HOUR_COUNT * 2; timeCount++) {
+            LocalTime endTime = startTime.plusMinutes(INTERVAL_MINUTE);
             Plan plan = new Plan(0L, date, startTime, endTime, "");
             dailyPlans.add(plan);
             startTime = endTime;
