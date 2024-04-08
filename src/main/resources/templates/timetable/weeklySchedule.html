@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WeeklySchedule</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .schedule-container {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto; /* 너비가 넘칠 경우 스크롤바 표시 */
+            width: 80%;
+            max-height : 80vh;
+        }
+        .schedule-table {
+            border-collapse: collapse;
+            width: 200px;
+        }
+        .schedule-table th, .schedule-table td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        input[type="text"] {
+            width: 100%;
+            border: none; /* 테두리 없애기 */
+            /* 또는 border: 0; padding: 0; 로 테두리를 숨기기 */
+        }
+        button[type="submit"] {
+            display: block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+<form action="/submit" method="post">
+
+    <h1 th:text="|${weeklySchedule.startDate} 주간 계획표|">00.00.00 주간 계획표</h1>
+
+    <div class="schedule-container">
+        <table class="schedule-table" th:each="dailySchedule : ${weeklySchedule.weeklyPlans}">
+            <thead>
+            <th th:text="${dailySchedule.weekDay}">월요일</th>
+            </thead>
+            <tbody>
+            <tr th:each="plan : ${dailySchedule.dailyPlans}">
+                <td><input type="text" th:value="${plan.planContent}"/></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit">전송</button>
+</form>
+</body>
+</html>
