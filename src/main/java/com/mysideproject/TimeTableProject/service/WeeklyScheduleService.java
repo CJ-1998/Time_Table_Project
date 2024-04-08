@@ -21,17 +21,17 @@ public class WeeklyScheduleService {
     }
 
     private List<DailySchedule> getWeeklyPlans(LocalDate date) {
-        List<DailySchedule> weeklySchedule = new ArrayList<>();
+        List<DailySchedule> weeklyPlans = new ArrayList<>();
 
         int dayOfMonth = date.getDayOfMonth();
 
         for (int day = 0; day < 7; day++) {
             LocalDate newDate = date.withDayOfMonth(dayOfMonth + day);
             DailySchedule dailySchedule = initDailySchedule(newDate);
-            weeklySchedule.add(dailySchedule);
+            weeklyPlans.add(dailySchedule);
         }
 
-        return weeklySchedule;
+        return weeklyPlans;
     }
 
     private DailySchedule initDailySchedule(LocalDate date) {
