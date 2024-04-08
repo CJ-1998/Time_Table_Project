@@ -3,6 +3,7 @@ package com.mysideproject.TimeTableProject.service;
 import com.mysideproject.TimeTableProject.domain.DailySchedule;
 import com.mysideproject.TimeTableProject.domain.Plan;
 import com.mysideproject.TimeTableProject.domain.WeeklySchedule;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -56,8 +57,11 @@ public class WeeklyScheduleService {
         // 시간별 계획 리스트 생성
         List<Plan> dailyPlans = getDailyPlans(date);
 
+        // 일간 계획표의 요일 획득
+        DayOfWeek weekDay = date.getDayOfWeek();
+
         // 일간 계획표 객체 생성 및 반환
-        DailySchedule dailySchedule = new DailySchedule(date, dailyPlans);
+        DailySchedule dailySchedule = new DailySchedule(date, weekDay, dailyPlans);
         return dailySchedule;
     }
 
