@@ -50,17 +50,28 @@ public class WeeklyScheduleService {
     private List<Plan> getDailyPlans(LocalDate date) {
         List<Plan> dailyPlans = new ArrayList<>();
 
-        LocalTime startOfDayTime = LocalTime.of(START_HOUR, START_MINUTE);
-        LocalTime startTime = startOfDayTime;
-
-        for (int timeCount = 0; timeCount < HOUR_COUNT * 2; timeCount++) {
+        // 시간별 계획 리스트 생성
+        for (LocalTime startTime : getTimeIntervals()) {
             LocalTime endTime = startTime.plusMinutes(INTERVAL_MINUTE);
-            Plan plan = new Plan(0L, date, startTime, endTime, "");
+            Plan plan = new Plan(0L, date, startTime, endTime, null);
             dailyPlans.add(plan);
-            startTime = endTime;
         }
 
         return dailyPlans;
     }
+
+    // 시간 간격을 반환하는 유틸리티 메서드
+    private List<LocalTime> getTimeIntervals() {
+        List<LocalTime> timeIntervals = new ArrayList<>();
+        LocalTime startTime = LocalTime.of(START_HOUR, START_MINUTE);
+
+        for (int timeCount = 0; timeCount < HOUR_COUNT * 2; timeCount++) {
+            timeIntervals.add(startTime);
+            startTime = startTime.plusMinutes(INTERVAL_MINUTE);
+        }
+
+        return timeIntervals;
+    }
+
 
 }
