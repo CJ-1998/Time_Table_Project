@@ -14,4 +14,12 @@ public class Plan {
     private LocalTime startTime;
     private LocalTime endTime;
     private String planContent;
+
+    public Plan(Long id, LocalDate date, LocalTime startTime, LocalTime endTime, String planContent) {
+        this.id = id;
+        this.date = date;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.planContent = planContent;
+    }
 }

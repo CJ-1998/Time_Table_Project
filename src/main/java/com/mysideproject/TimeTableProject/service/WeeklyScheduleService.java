@@ -4,6 +4,7 @@ import com.mysideproject.TimeTableProject.domain.DailySchedule;
 import com.mysideproject.TimeTableProject.domain.Plan;
 import com.mysideproject.TimeTableProject.domain.WeeklySchedule;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Service;
@@ -38,6 +39,22 @@ public class WeeklyScheduleService {
 
         DailySchedule dailySchedule = new DailySchedule(date, dailyPlans);
         return dailySchedule;
+    }
+
+    private List<Plan> getDailyPlans(LocalDate date) {
+        List<Plan> dailyPlans = new ArrayList<>();
+
+        LocalTime startOfDayTime = LocalTime.of(0, 0);
+        LocalTime startTime = startOfDayTime;
+
+        for (int timeCount = 0; timeCount < 24 * 2; timeCount++) {
+            LocalTime endTime = startTime.plusMinutes(30);
+            Plan plan = new Plan(0L, date, startTime, endTime, "");
+            dailyPlans.add(plan);
+            startTime = endTime;
+        }
+
+        return dailyPlans;
     }
 
 }
