@@ -23,13 +23,16 @@ public class WeeklyScheduleService {
     //주간 계획표 초기화 메서드
     public WeeklySchedule initWeeklySchedule() {
         // 초기 날짜 설정
-        LocalDate date = LocalDate.of(2024, 4, 1);
+        LocalDate startDate = LocalDate.of(2024, 4, 1);
+
+        // 초기 날짜 + 6일 후 날짜 설정
+        LocalDate endDate = startDate.plusDays(DAY_COUNT - 1);
 
         // 일간 계획표 리스트 생성
-        List<DailySchedule> weeklyPlans = getWeeklyPlans(date);
+        List<DailySchedule> weeklyPlans = getWeeklyPlans(startDate);
 
         // 주간 계획표 객체 생성 및 반환
-        WeeklySchedule weeklySchedule = new WeeklySchedule(date, weeklyPlans);
+        WeeklySchedule weeklySchedule = new WeeklySchedule(startDate, endDate, weeklyPlans);
         return weeklySchedule;
     }
 

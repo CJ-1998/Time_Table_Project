@@ -9,11 +9,13 @@ import lombok.Setter;
 @Setter
 public class WeeklySchedule {
     private LocalDate startDate;
+    private LocalDate endDate;
     private List<DailySchedule> weeklyPlans;
 
-    public WeeklySchedule(LocalDate startDate,
+    public WeeklySchedule(LocalDate startDate, LocalDate endDate,
                           List<DailySchedule> weeklyPlans) {
         this.startDate = startDate;
+        this.endDate = endDate;
         this.weeklyPlans = weeklyPlans;
     }
 }
