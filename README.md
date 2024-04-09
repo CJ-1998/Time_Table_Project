@@ -28,36 +28,86 @@ notion에 주간 계획과 일간 계획을 작성한다.
 
 <br>
 
-## 🌌 그림 설명
-### **주간 계획표**
+## 🌌 화면 설명
+1. **메인 화면** : 주간 계획표 들어갈 수 있는 링크 있는 화면
+2. **전체 주간 계획표 화면** : 월, 주차별로 주간 계획표 보여주는 화면
+3. **주간 계획표 화면** : 주간 계획표, 시간으로 이동하는 링크, 일간 계획표 7개 있는 화면 
+4. **시간 계산 화면** : 항목별 시간 계산된 표 보여주는 화면
+5. **일간 계획표 화면** : 계획과 실행한 것, 체크 있는 화면
 
 <br>
 
-![image](https://file.notion.so/f/f/7d1044b7-24d0-4b32-b24a-1b9061f7bf65/8a178aa9-50c0-447b-8d2f-6d6c1cc1898d/Untitled.png?id=ae569cc6-c88b-4152-9db7-0ac0c6ade6e0&table=block&spaceId=7d1044b7-24d0-4b32-b24a-1b9061f7bf65&expirationTimestamp=1712152800000&signature=27uWqfVV8-EgE-OsHLhEPuywzHoN5y0aOMQS9UbF8Q0&downloadName=Untitled.png)
+### **전체 주간 계획표 화면**
+
+<p align="center">
+<img src="https://file.notion.so/f/f/7d1044b7-24d0-4b32-b24a-1b9061f7bf65/9d9a35f4-c339-4da3-bfc8-b7e40bba35e6/Untitled.png?id=95a1bf69-fe53-4c54-8af4-6a17ce2eb25c&table=block&spaceId=7d1044b7-24d0-4b32-b24a-1b9061f7bf65&expirationTimestamp=1712721600000&signature=XKyZa3wBqDX2h9SLXQFUOhPtPbijhHeFdgHvcb9-xwc&downloadName=Untitled.png" width="200" height="200"/>
+</p>
 
 <br>
 
-### **주간 계획표 시간 계산**
+### **주간 계획표 화면**
 
 <br>
 
-![image](https://file.notion.so/f/f/7d1044b7-24d0-4b32-b24a-1b9061f7bf65/27812d65-821a-4335-8241-bd2d3a32449c/Untitled.png?id=d92139a0-870c-485d-9cc9-9022142e3ffa&table=block&spaceId=7d1044b7-24d0-4b32-b24a-1b9061f7bf65&expirationTimestamp=1712160000000&signature=eirXRsrkMK9cxGR1hRcw-KtqSJFDeTM_MNpL_9SFeVs&downloadName=Untitled.png)
+<p align="center">
+<img src="https://file.notion.so/f/f/7d1044b7-24d0-4b32-b24a-1b9061f7bf65/0b8f75c0-cdf2-410d-a4f1-ec86baf16ce5/Untitled.png?id=58ffc71d-9032-41e5-941f-a108cbe19d1a&table=block&spaceId=7d1044b7-24d0-4b32-b24a-1b9061f7bf65&expirationTimestamp=1712721600000&signature=LiENK29Ju9pEBT0ASaD_sACxu8TUr-ujorWevdWPJxk&downloadName=Untitled.png" width="250" height="250"/>
+</p>
 
 <br>
 
-### **일간 계획표**
+### **시간 계산 화면**
 
 <br>
 
-![image](https://file.notion.so/f/f/7d1044b7-24d0-4b32-b24a-1b9061f7bf65/52e226fd-f80a-49cb-a72e-6a7b9aff2330/Untitled.png?id=8be8a8a6-34d9-4925-824c-c0e17084a1fc&table=block&spaceId=7d1044b7-24d0-4b32-b24a-1b9061f7bf65&expirationTimestamp=1712160000000&signature=lc0pYtDRjNOguHMtyLYiSE-bslfrJnwCby1MFMpmG8U&downloadName=Untitled.png)
+<p align="center">
+<img src="https://file.notion.so/f/f/7d1044b7-24d0-4b32-b24a-1b9061f7bf65/27812d65-821a-4335-8241-bd2d3a32449c/Untitled.png?id=ff6136c0-757a-47b4-aa2e-2de71537896b&table=block&spaceId=7d1044b7-24d0-4b32-b24a-1b9061f7bf65&expirationTimestamp=1712721600000&signature=P_8-sBejEfdJY3CAXXqkn4hnK2Q5GfHL7bkLxX2HKu0&downloadName=Untitled.png" width="250" height="250"/>
+</p>
+
+<br>
+
+### **일간 계획표 화면**
+
+<br>
+
+<p align="center">
+<img src="https://file.notion.so/f/f/7d1044b7-24d0-4b32-b24a-1b9061f7bf65/67c01bce-e66f-42e7-aa78-fca853ef3745/Untitled.png?id=8b80894a-28f5-41e2-b61d-a9f4a06d1f29&table=block&spaceId=7d1044b7-24d0-4b32-b24a-1b9061f7bf65&expirationTimestamp=1712721600000&signature=87OlkcQYmYN_1ONThk9R_thFTNSVNdhTYLIwCYq4I3A&downloadName=Untitled.png" width="250" height="300"/>
+</p>
 
 <br>
 
 ## ⚙ 기능 요구 사항
-1. 주간 계획 템플릿 불러오기 기능
-2. 주간 계획 시간 계산 기능
-3. 일간 계획 주간 계획 통해 자동 작성 기능
-4. 일간 계획 O 체크 시 수행한 것 계획과 똑같이 자동 작성 기능
-5. 일간 계획 X 체크 시 수행한 것 스스로 작성 기능
-6. 일간 계획 성공률 계산 기능
-7. 주간 계획 성공률 계산 기능
+### 전체 주간 계획표 화면 관련
+
+1. n월 만드는 기능 (n월의 주간 계획표 추가할 수 있는 탭 만드는 기능)  
+2. n월 n주차 주간 계획표 만드는 기능 (n주차 선택해서 n주차 주간 계획표 탭 만드는 기능)
+
+<br>
+
+### 주간 계획표 화면 관련
+
+1. 일간 계획표 리스트 반환해 보여주는 기능
+2. 새로 만든 주간 계획표라면 빈 주간 계획표 보여주는 기능
+3. 템플릿 불러오기 버튼 누르면 템플릿 불러오는 기능
+4. 주간 계획표에 계획 작성 후 저장 버튼 누르면 저장하는 기능
+5. 시간 계산 화면으로 이동하는 기능
+6. 큰 태그 추가하는 기능 (공부, 휴식, 기타…)
+7. 태그에 세부 항목 추가 하는 기능 (공부 태그: 스터디, 알고리즘…)
+
+<br>
+
+### 시간 계한 화면 관련
+
+1. 주간 계획표의 시간들 가져와 계산하는 기능 (초기 기능 - 그냥 항목별로 전부 계산)
+2. 주간 계획표의 시간들 태그 별로 계산하는 기능 (향상 기능 - 태그별로 계산)
+3. 주간 총합 시간 계산하는 기능
+4. 주간 총합 시간 비율 계산하는 기능
+5. 태그 별로 총 시간, % 보여주는 기능
+
+<br>
+
+### 일간 계획표 화면 관련
+
+1. 주간 계획표의 계획 가져와 일간 계획 탭에 보여주는 기능
+2. 일간 실행 탭에 같은 것 작성 시 체크 O 되는 기능
+3. 일간 실행 탭에 다른 것 작성 시 체크 X 되는 기능
+4. 체크 O 누르면 일간 실행 탭에 일간 계획 탭의 것 작성해주는 기능
