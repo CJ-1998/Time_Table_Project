@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 @RequiredArgsConstructor
@@ -28,9 +27,9 @@ public class WeeklyScheduleController {
 
     // 전체 주간 계획표 화면에서 추가 버튼 누르면 들어오는 요청.
     // 주간 계획표 추가 화면으로 이동.
-    @PostMapping("/timetable/new")
+    @GetMapping("/timetable/new")
     public String addTimeTable() {
-        return "timetable/newTimeTable";
+        return "timetable/addWeeklySchedule";
     }
 
     // 비어 있는 주간 계획표를 보여주는 컨트롤러.
