@@ -22,7 +22,7 @@ public class WeeklyScheduleController {
     @GetMapping("/timetables")
     public String showAllWeeklySchedule(Model model) {
         List<WeeklySchedule> allWeeklySchedule = weeklyScheduleRepository.findAll();
-        model.addAttribute(allWeeklySchedule);
+        model.addAttribute("allWeeklySchedule", allWeeklySchedule);
         return "timetable/allWeeklySchedule";
     }
 
