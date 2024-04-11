@@ -21,9 +21,10 @@ public class WeeklyScheduleService {
     public static final int INTERVAL_MINUTE = 30;
 
     //주간 계획표 초기화 메서드
-    public WeeklySchedule initWeeklySchedule() {
+    public WeeklySchedule initWeeklySchedule(LocalDate date) {
         // 초기 날짜 설정
-        LocalDate startDate = LocalDate.of(2024, 4, 1);
+//        LocalDate startDate = LocalDate.of(2024, 4, 1);
+        LocalDate startDate = date;
 
         // 초기 날짜 + 6일 후 날짜 설정
         LocalDate endDate = startDate.plusDays(DAY_COUNT - 1);

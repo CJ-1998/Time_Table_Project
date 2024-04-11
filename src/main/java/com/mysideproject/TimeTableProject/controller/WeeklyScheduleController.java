@@ -3,6 +3,7 @@ package com.mysideproject.TimeTableProject.controller;
 import com.mysideproject.TimeTableProject.domain.WeeklySchedule;
 import com.mysideproject.TimeTableProject.repository.WeeklyScheduleRepository;
 import com.mysideproject.TimeTableProject.service.WeeklyScheduleService;
+import java.time.LocalDate;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -36,7 +37,7 @@ public class WeeklyScheduleController {
     // 추후에는 날짜에 따라 주간 계획표 찾아 Model에 담아 보낼 것이라 사용되지 않을 컨트롤러.
     @GetMapping("/timetable")
     public String showFirstWeeklySchedule(Model model) {
-        WeeklySchedule weeklySchedule = weeklyScheduleService.initWeeklySchedule();
+        WeeklySchedule weeklySchedule = weeklyScheduleService.initWeeklySchedule(LocalDate.of(2024, 4, 1));
         model.addAttribute("weeklySchedule", weeklySchedule);
         return "timetable/weeklySchedule";
     }
