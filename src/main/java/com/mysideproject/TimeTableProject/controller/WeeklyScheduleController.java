@@ -14,11 +14,23 @@ public class WeeklyScheduleController {
 
     private final WeeklyScheduleService weeklyScheduleService;
 
+    // 전체 주간 계획표 화면 달라는 요청
+    // 전체 주간 계획표 화면으로 이동동
+    @GetMapping("/timetables")
+    public String showAllWeeklySchedule() {
+        return "timetable/allWeeklySchedule";
+    }
+
+
+    // 전체 주간 계획표 화면에서 추가 버튼 누르면 들어오는 요청.
+    // 주간 계획표 추가 화면으로 이동.
     @PostMapping("/timetable/new")
     public String addTimeTable() {
         return "timetable/newTimeTable";
     }
 
+    // 비어 있는 주간 계획표를 보여주는 컨트롤러.
+    // 추후에는 날짜에 따라 주간 계획표 찾아 Model에 담아 보낼 것이라 사용되지 않을 컨트롤러.
     @GetMapping("/timetable")
     public String showFirstWeeklySchedule(Model model) {
         WeeklySchedule weeklySchedule = weeklyScheduleService.initWeeklySchedule();
