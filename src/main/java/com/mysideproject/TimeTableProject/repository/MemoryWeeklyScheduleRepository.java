@@ -2,7 +2,9 @@ package com.mysideproject.TimeTableProject.repository;
 
 import com.mysideproject.TimeTableProject.domain.WeeklySchedule;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import org.springframework.stereotype.Repository;
 
@@ -23,5 +25,10 @@ public class MemoryWeeklyScheduleRepository implements WeeklyScheduleRepository 
     @Override
     public WeeklySchedule findByStartDate(LocalDate startDate) {
         return weeklyScheduleRepository.get(startDate);
+    }
+
+    @Override
+    public List<WeeklySchedule> findAll() {
+        return new ArrayList<>(weeklyScheduleRepository.values());
     }
 }
