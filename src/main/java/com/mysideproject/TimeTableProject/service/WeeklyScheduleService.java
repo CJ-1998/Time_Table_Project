@@ -3,15 +3,24 @@ package com.mysideproject.TimeTableProject.service;
 import com.mysideproject.TimeTableProject.domain.DailySchedule;
 import com.mysideproject.TimeTableProject.domain.Plan;
 import com.mysideproject.TimeTableProject.domain.WeeklySchedule;
+import com.mysideproject.TimeTableProject.repository.DailyScheduleRepository;
+import com.mysideproject.TimeTableProject.repository.PlanRepository;
+import com.mysideproject.TimeTableProject.repository.WeeklyScheduleRepository;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class WeeklyScheduleService {
+
+    private final WeeklyScheduleRepository weeklyScheduleRepository;
+    private final DailyScheduleRepository dailyScheduleRepository;
+    private final PlanRepository planRepository;
 
     // 상수 정의
     public static final int DAY_COUNT = 7;
@@ -34,6 +43,10 @@ public class WeeklyScheduleService {
 
         // 주간 계획표 객체 생성 및 반환
         WeeklySchedule weeklySchedule = new WeeklySchedule(startDate, endDate, weeklyPlans);
+
+        // 주간 계획표 저장소에 주간 계획표 객체 저장
+        weeklyScheduleRepository.save(weeklySchedule);
+
         return weeklySchedule;
     }
 
@@ -66,6 +79,10 @@ public class WeeklyScheduleService {
 
         // 일간 계획표 객체 생성 및 반환
         DailySchedule dailySchedule = new DailySchedule(date, weekDay, dailyPlans);
+
+        // 일간 계획표 저장소에 일간 계획표 객체 저장
+        dailyScheduleRepository.save(dailySchedule);
+
         return dailySchedule;
     }
 
@@ -81,6 +98,9 @@ public class WeeklyScheduleService {
             // Plan 객체 생성 (planContent는 null로 설정)
             Plan plan = new Plan(0L, date, startTime, endTime, null);
             dailyPlans.add(plan);   // 일간 계획표에 시간별 계획 추가
+
+            // 계획 저장소에 계획 객체 저장
+            planRepository.save(plan);
         }
 
         return dailyPlans;
