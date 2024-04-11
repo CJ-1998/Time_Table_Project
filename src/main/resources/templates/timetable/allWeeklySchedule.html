@@ -10,7 +10,8 @@
 <body>
 <h1>전체 주간 계획표</h1>
 <ul th:each="weeklySchedule : ${allWeeklySchedule}">
-    <li><a href="#" th:text="|${weeklySchedule.startDate}~${weeklySchedule.endDate}|">2024.04.01~2024.04.06</a></li>
+    <li><a href="#" th:href="@{|/timetable/${weeklySchedule.startDate}|}"
+           th:text="|${weeklySchedule.startDate}~${weeklySchedule.endDate}|">2024.04.01~2024.04.06</a></li>
 </ul>
 <button onclick="location.href='/timetable/new'">추가</button>
 </body>
