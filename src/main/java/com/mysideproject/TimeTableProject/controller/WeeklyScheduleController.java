@@ -3,6 +3,7 @@ package com.mysideproject.TimeTableProject.controller;
 import com.mysideproject.TimeTableProject.domain.WeeklySchedule;
 import com.mysideproject.TimeTableProject.repository.WeeklyScheduleRepository;
 import com.mysideproject.TimeTableProject.service.WeeklyScheduleService;
+import jakarta.annotation.PostConstruct;
 import java.time.LocalDate;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -61,5 +62,11 @@ public class WeeklyScheduleController {
         WeeklySchedule weeklySchedule = weeklyScheduleService.initWeeklySchedule(LocalDate.of(2024, 4, 1));
         model.addAttribute("weeklySchedule", weeklySchedule);
         return "timetable/weeklySchedule";
+    }
+
+    @PostConstruct
+    public void init() {
+        LocalDate date = LocalDate.of(1998, 6, 27);
+        weeklyScheduleService.initWeeklySchedule(date);
     }
 }
