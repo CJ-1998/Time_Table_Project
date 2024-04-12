@@ -66,7 +66,7 @@ public class WeeklyScheduleController {
 
     @PostConstruct
     public void init() {
-        LocalDate date = LocalDate.of(1998, 6, 27);
+        LocalDate date = LocalDate.of(1998, 1, 1);
         weeklyScheduleService.initWeeklySchedule(date);
     }
 }
