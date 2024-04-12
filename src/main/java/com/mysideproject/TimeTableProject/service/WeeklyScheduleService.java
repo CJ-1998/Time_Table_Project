@@ -59,7 +59,11 @@ public class WeeklyScheduleService {
         int dayOfMonth = date.getDayOfMonth();
 
         for (int day = 0; day < DAY_COUNT; day++) {
-            LocalDate newDate = date.withDayOfMonth(dayOfMonth + day);
+            // 날짜 내가 직접 더해서 생성해서 오류 발생!!!!!!!!!
+            // LocalDate newDate = date.withDayOfMonth(dayOfMonth + day);
+
+            // 날짜 더할 때에는 plusDays 메서드 사용해야 함.
+            LocalDate newDate = date.plusDays(day);
 
             //일간 계획표 초기화
             DailySchedule dailySchedule = initDailySchedule(newDate);
