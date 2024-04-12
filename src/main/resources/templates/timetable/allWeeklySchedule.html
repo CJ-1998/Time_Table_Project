@@ -6,12 +6,74 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>전체 주간 계획표</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            max-width: 600px;
+            text-align: left;
+        }
+
+        li {
+            margin-bottom: 10px;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        a {
+            font-size: 25px;
+            color: #2980b9;
+            text-decoration: none;
+            display: block; /* Makes the whole list item clickable */
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+
+
+
+    </style>
 </head>
 <body>
 <h1>전체 주간 계획표</h1>
 <ul th:each="weeklySchedule : ${allWeeklySchedule}">
     <li><a href="#" th:href="@{|/timetable/${weeklySchedule.startDate}|}"
-           th:text="|${weeklySchedule.startDate}~${weeklySchedule.endDate}|">2024.04.01~2024.04.06</a></li>
+           th:text="|${weeklySchedule.startDate} ~ ${weeklySchedule.endDate}  주간 계획표|">2024.04.01~2024.04.06</a></li>
 </ul>
 <button onclick="location.href='/timetable/new'">추가</button>
 </body>
