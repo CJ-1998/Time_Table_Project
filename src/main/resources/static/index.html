@@ -5,10 +5,63 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Time Table Project</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* h1 at the top */
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            margin-top: 20px;
+            color: #2c3e50;
+            font-size : 75px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            width: 100%; /* Full width */
+            display: flex;
+            justify-content: center; /* Center li horizontally */
+            align-items: center; /* Center li vertically */
+            flex: 1; /* Take up the remaining space */
+        }
+
+        li {
+            margin-top: 20px;
+        }
+
+        a {
+            font-size: 35px;
+            font-weight: bold;
+            color: #2980b9;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid #2980b9;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        a:hover {
+            background-color: #2980b9;
+            color: white;
+        }
+
+    </style>
 </head>
 <body>
 <h1>Time Table Project</h1>
-<li><a href="/timetables" style="font-size : 20px; font-weight : bold">TimeTable</a></li>
+<ul>
+    <li><a href="/timetables">TimeTable</a></li>
+</ul>
 </body>
 </html>
