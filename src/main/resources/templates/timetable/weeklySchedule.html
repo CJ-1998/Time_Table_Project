@@ -92,6 +92,10 @@
         }
 
 
+
+
+
+
     </style>
 </head>
 <body>
@@ -102,6 +106,7 @@
 <br>
 
 <form action="/timetable/save" method="post">
+    <input type="hidden" name="startDate" th:value="${weeklySchedule.startDate}"/>
     <div class="schedule-container">
         <table class="schedule-table">
             <thead>
@@ -113,13 +118,14 @@
             </tr>
             </tbody>
         </table>
-        <table class="schedule-table" th:each="dailySchedule : ${weeklySchedule.weeklyPlans}">
+        <table class="schedule-table" th:each="dailySchedule, dailyStat : ${weeklySchedule.weeklyPlans}">
             <thead>
             <th th:text="${dailySchedule.weekDay}">월요일</th>
             </thead>
             <tbody>
-            <tr th:each="plan : ${dailySchedule.dailyPlans}">
-                <td><input type="text" th:name="${dailySchedule.weekDay}"
+            <tr th:each="plan, planStat : ${dailySchedule.dailyPlans}">
+                <td><input type="text"
+                           th:name="'weeklyPlans[' + ${dailyStat.index} + '].dailyPlans[' + ${planStat.index} + '].planContent'"
                            th:value="${plan.planContent}"/></td>
             </tr>
             </tbody>

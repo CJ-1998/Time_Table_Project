@@ -1,5 +1,6 @@
 package com.mysideproject.TimeTableProject.controller;
 
+import com.mysideproject.TimeTableProject.DTO.WeeklyScheduleDTO;
 import com.mysideproject.TimeTableProject.domain.WeeklySchedule;
 import com.mysideproject.TimeTableProject.repository.WeeklyScheduleRepository;
 import com.mysideproject.TimeTableProject.service.WeeklyScheduleService;
@@ -30,6 +31,32 @@ public class WeeklyScheduleController {
         return "timetable/weeklySchedule";
     }
 
+//    // DTO 개발 위해 테스트 해본 컨트롤러 1
+//    @PostMapping("/timetable/save")
+//    public String test(@RequestBody String temp) {
+//        System.out.println(temp);
+//        return "redirect:/timetables";
+//    }
+
+//    // DTO 개발 위해 테스트 해본 컨트롤러 2
+//    @PostMapping("/timetable/save")
+//    public String test(@ModelAttribute WeeklyScheduleDTO weeklyScheduleDTO) {
+//        System.out.println(weeklyScheduleDTO.getStartDate());
+//
+//        int cnt = 1;
+//        for (DailyScheduleDTO weeklyPlan : weeklyScheduleDTO.getWeeklyPlans()) {
+//            int t = 1;
+//            for (PlanDTO dailyPlan : weeklyPlan.getDailyPlans()) {
+//                System.out.println(cnt + "일차 " + t + " " + dailyPlan.getPlanContent());
+//                t++;
+//            }
+//            cnt++;
+//            System.out.println("---------------");
+//        }
+//
+//        return "redirect:/timetables";
+//    }
+
     // 입력된 주간 계획표 저장 버튼 클릭 시 들어오는 요청
     // 주간 계획표 저장하는 요청
     // 주간 계획표 저장 후 다시 주간 계획표 화면 보여줌
@@ -41,6 +68,7 @@ public class WeeklyScheduleController {
         redirectAttributes.addAttribute("startDate", weeklySchedule.getStartDate());
         return "redirect:/timetable/{startDate}";
     }
+
 
     // 비어 있는 주간 계획표를 보여주는 컨트롤러.
     // 추후에는 날짜에 따라 주간 계획표 찾아 Model에 담아 보낼 것이라 사용되지 않을 컨트롤러.
