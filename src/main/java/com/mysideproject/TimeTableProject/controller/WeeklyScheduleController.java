@@ -8,7 +8,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequiredArgsConstructor
@@ -25,6 +28,18 @@ public class WeeklyScheduleController {
         WeeklySchedule weeklySchedule = weeklyScheduleRepository.findByStartDate(startDate);
         model.addAttribute("weeklySchedule", weeklySchedule);
         return "timetable/weeklySchedule";
+    }
+
+    // 입력된 주간 계획표 저장 버튼 클릭 시 들어오는 요청
+    // 주간 계획표 저장하는 요청
+    // 주간 계획표 저장 후 다시 주간 계획표 화면 보여줌
+    @PostMapping("/timetable/save")
+    public String saveWeeklySchedule(@ModelAttribute WeeklyScheduleDTO weeklyScheduleDTO,
+                                     RedirectAttributes redirectAttributes) {
+        // 받은 데이터 서비스로 넘겨 저장 후 주간 계획표 넘김
+        WeeklySchedule weeklySchedule = weeklyScheduleService.saveWeeklySchedule(weeklyScheduleDTO);
+        redirectAttributes.addAttribute("startDate", weeklySchedule.getStartDate());
+        return "redirect:/timetable/{startDate}";
     }
 
     // 비어 있는 주간 계획표를 보여주는 컨트롤러.
