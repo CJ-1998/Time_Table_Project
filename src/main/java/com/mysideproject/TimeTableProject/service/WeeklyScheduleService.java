@@ -1,5 +1,6 @@
 package com.mysideproject.TimeTableProject.service;
 
+import com.mysideproject.TimeTableProject.DTO.WeeklyScheduleDTO;
 import com.mysideproject.TimeTableProject.domain.DailySchedule;
 import com.mysideproject.TimeTableProject.domain.Plan;
 import com.mysideproject.TimeTableProject.domain.WeeklySchedule;
@@ -128,4 +129,7 @@ public class WeeklyScheduleService {
     }
 
 
+    public WeeklySchedule saveWeeklySchedule(WeeklyScheduleDTO weeklyScheduleDTO) {
+        return weeklyScheduleRepository.update(weeklyScheduleDTO);
+    }
 }
