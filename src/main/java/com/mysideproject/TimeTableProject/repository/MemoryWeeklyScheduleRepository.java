@@ -31,4 +31,10 @@ public class MemoryWeeklyScheduleRepository implements WeeklyScheduleRepository 
     public List<WeeklySchedule> findAll() {
         return new ArrayList<>(weeklyScheduleRepository.values());
     }
+
+    @Override
+    public WeeklySchedule update(WeeklySchedule weeklySchedule) {
+
+        return null;
+    }
 }

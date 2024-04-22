@@ -130,6 +130,6 @@ public class WeeklyScheduleService {
 
 
     public WeeklySchedule saveWeeklySchedule(WeeklyScheduleDTO weeklyScheduleDTO) {
-        return weeklyScheduleRepository.update(weeklyScheduleDTO);
+        return null;
     }
 }
