@@ -8,4 +8,6 @@ public interface DailyScheduleRepository {
     DailySchedule save(DailySchedule dailySchedule);
 
     DailySchedule findByDate(LocalDate date);
+
+    void update(DailySchedule dailySchedule, DailySchedule changedDailySchedule1);
 }

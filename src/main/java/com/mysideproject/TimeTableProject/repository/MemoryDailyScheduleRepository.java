@@ -23,4 +23,9 @@ public class MemoryDailyScheduleRepository implements DailyScheduleRepository {
     public DailySchedule findByDate(LocalDate date) {
         return dailyScheduleRepository.get(date);
     }
+
+    @Override
+    public void update(DailySchedule dailySchedule, DailySchedule changedDailySchedule1) {
+
+    }
 }
