@@ -38,9 +38,9 @@ notion에 주간 계획과 일간 계획을 작성한다.
 <br>
 
 ### **전체 주간 계획표 화면**
-
 <p align="center">
-<img src="https://file.notion.so/f/f/7d1044b7-24d0-4b32-b24a-1b9061f7bf65/9d9a35f4-c339-4da3-bfc8-b7e40bba35e6/Untitled.png?id=95a1bf69-fe53-4c54-8af4-6a17ce2eb25c&table=block&spaceId=7d1044b7-24d0-4b32-b24a-1b9061f7bf65&expirationTimestamp=1712721600000&signature=XKyZa3wBqDX2h9SLXQFUOhPtPbijhHeFdgHvcb9-xwc&downloadName=Untitled.png" width="200" height="200"/>
+<img src="https://cj-1998.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F7d1044b7-24d0-4b32-b24a-1b9061f7bf65%2F9d9a35f4-c339-4da3-bfc8-b7e40bba35e6%2FUntitled.png?table=block&id=95a1bf69-fe53-4c54-8af4-6a17ce2eb25c&spaceId=7d1044b7-24d0-4b32-b24a-1b9061f7bf65&width=480&userId=&cache=v2
+" width="200" height="200"/>
 </p>
 
 <br>
@@ -50,7 +50,7 @@ notion에 주간 계획과 일간 계획을 작성한다.
 <br>
 
 <p align="center">
-<img src="https://file.notion.so/f/f/7d1044b7-24d0-4b32-b24a-1b9061f7bf65/0b8f75c0-cdf2-410d-a4f1-ec86baf16ce5/Untitled.png?id=58ffc71d-9032-41e5-941f-a108cbe19d1a&table=block&spaceId=7d1044b7-24d0-4b32-b24a-1b9061f7bf65&expirationTimestamp=1712721600000&signature=LiENK29Ju9pEBT0ASaD_sACxu8TUr-ujorWevdWPJxk&downloadName=Untitled.png" width="250" height="250"/>
+<img src="https://cj-1998.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F7d1044b7-24d0-4b32-b24a-1b9061f7bf65%2F0b8f75c0-cdf2-410d-a4f1-ec86baf16ce5%2FUntitled.png?table=block&id=58ffc71d-9032-41e5-941f-a108cbe19d1a&spaceId=7d1044b7-24d0-4b32-b24a-1b9061f7bf65&width=770&userId=&cache=v2" width="250" height="250"/>
 </p>
 
 <br>
@@ -60,7 +60,7 @@ notion에 주간 계획과 일간 계획을 작성한다.
 <br>
 
 <p align="center">
-<img src="https://file.notion.so/f/f/7d1044b7-24d0-4b32-b24a-1b9061f7bf65/27812d65-821a-4335-8241-bd2d3a32449c/Untitled.png?id=ff6136c0-757a-47b4-aa2e-2de71537896b&table=block&spaceId=7d1044b7-24d0-4b32-b24a-1b9061f7bf65&expirationTimestamp=1712721600000&signature=P_8-sBejEfdJY3CAXXqkn4hnK2Q5GfHL7bkLxX2HKu0&downloadName=Untitled.png" width="250" height="250"/>
+<img src="https://cj-1998.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F7d1044b7-24d0-4b32-b24a-1b9061f7bf65%2F27812d65-821a-4335-8241-bd2d3a32449c%2FUntitled.png?table=block&id=ff6136c0-757a-47b4-aa2e-2de71537896b&spaceId=7d1044b7-24d0-4b32-b24a-1b9061f7bf65&width=860&userId=&cache=v2" width="250" height="250"/>
 </p>
 
 <br>
@@ -70,7 +70,7 @@ notion에 주간 계획과 일간 계획을 작성한다.
 <br>
 
 <p align="center">
-<img src="https://file.notion.so/f/f/7d1044b7-24d0-4b32-b24a-1b9061f7bf65/67c01bce-e66f-42e7-aa78-fca853ef3745/Untitled.png?id=8b80894a-28f5-41e2-b61d-a9f4a06d1f29&table=block&spaceId=7d1044b7-24d0-4b32-b24a-1b9061f7bf65&expirationTimestamp=1712721600000&signature=87OlkcQYmYN_1ONThk9R_thFTNSVNdhTYLIwCYq4I3A&downloadName=Untitled.png" width="250" height="300"/>
+<img src="https://cj-1998.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F7d1044b7-24d0-4b32-b24a-1b9061f7bf65%2F67c01bce-e66f-42e7-aa78-fca853ef3745%2FUntitled.png?table=block&id=8b80894a-28f5-41e2-b61d-a9f4a06d1f29&spaceId=7d1044b7-24d0-4b32-b24a-1b9061f7bf65&width=670&userId=&cache=v2" width="250" height="300"/>
 </p>
 
 <br>
