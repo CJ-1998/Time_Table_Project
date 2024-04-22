@@ -139,12 +139,12 @@ public class WeeklyScheduleService {
     // WeeklyScheduleDTO를 WeeklySchedule로 변환하는 메서드
     private WeeklySchedule convertWeeklyScheduleDTO(WeeklyScheduleDTO weeklyScheduleDTO) {
         LocalDate startDate = weeklyScheduleDTO.getStartDate();
-        LocalDate endDate = startDate.plusDays(DAY_COUNT);
+        LocalDate endDate = startDate.plusDays(DAY_COUNT - 1);
         List<DailySchedule> weeklyPlans = new ArrayList<>();
 
         int count = 0;
         for (DailyScheduleDTO dailyScheduleDTO : weeklyScheduleDTO.getWeeklyPlans()) {
-            LocalDate date = startDate.plusDays(count);
+            LocalDate date = startDate.plusDays(count++);
             DailySchedule convertedDailySchedule = convertDailyScheduleDTO(date, dailyScheduleDTO);
             weeklyPlans.add(convertedDailySchedule);
         }
