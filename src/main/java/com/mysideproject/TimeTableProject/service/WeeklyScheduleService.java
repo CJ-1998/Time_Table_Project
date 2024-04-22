@@ -1,5 +1,7 @@
 package com.mysideproject.TimeTableProject.service;
 
+import com.mysideproject.TimeTableProject.DTO.DailyScheduleDTO;
+import com.mysideproject.TimeTableProject.DTO.PlanDTO;
 import com.mysideproject.TimeTableProject.DTO.WeeklyScheduleDTO;
 import com.mysideproject.TimeTableProject.domain.DailySchedule;
 import com.mysideproject.TimeTableProject.domain.Plan;
@@ -130,6 +132,41 @@ public class WeeklyScheduleService {
 
 
     public WeeklySchedule saveWeeklySchedule(WeeklyScheduleDTO weeklyScheduleDTO) {
-        return null;
+        WeeklySchedule convertedWeeklySchedule = convertWeeklyScheduleDTO(weeklyScheduleDTO);
+        return weeklyScheduleRepository.update(convertedWeeklySchedule);
+    }
+
+    // WeeklyScheduleDTO를 WeeklySchedule로 변환하는 메서드
+    private WeeklySchedule convertWeeklyScheduleDTO(WeeklyScheduleDTO weeklyScheduleDTO) {
+        LocalDate startDate = weeklyScheduleDTO.getStartDate();
+        LocalDate endDate = startDate.plusDays(DAY_COUNT);
+        List<DailySchedule> weeklyPlans = new ArrayList<>();
+
+        int count = 0;
+        for (DailyScheduleDTO dailyScheduleDTO : weeklyScheduleDTO.getWeeklyPlans()) {
+            LocalDate date = startDate.plusDays(count);
+            DailySchedule convertedDailySchedule = convertDailyScheduleDTO(date, dailyScheduleDTO);
+            weeklyPlans.add(convertedDailySchedule);
+        }
+
+        return new WeeklySchedule(startDate, endDate, weeklyPlans);
+    }
+
+    // DayilyScheduleDTO를 DailySchedule로 변환하는 메서드
+    private DailySchedule convertDailyScheduleDTO(LocalDate date, DailyScheduleDTO dailyScheduleDTO) {
+        DayOfWeek weekDay = date.getDayOfWeek();
+        List<Plan> dailyPlans = new ArrayList<>();
+
+        for (PlanDTO planDTO : dailyScheduleDTO.getDailyPlans()) {
+            Plan convertedPlan = convertPlanDTO(date, planDTO);
+            dailyPlans.add(convertedPlan);
+        }
+
+        return new DailySchedule(date, weekDay, dailyPlans);
+    }
+
+    // PlanDTO를 Plan로 변환하는 메서드
+    private Plan convertPlanDTO(LocalDate date, PlanDTO planDTO) {
+        return new Plan(0L, date, null, null, planDTO.getPlanContent());
     }
 }
