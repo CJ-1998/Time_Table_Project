@@ -9,5 +9,5 @@ public interface DailyScheduleRepository {
 
     DailySchedule findByDate(LocalDate date);
 
-    void update(DailySchedule dailySchedule, DailySchedule changedDailySchedule1);
+    void update(DailySchedule dailySchedule, DailySchedule changedDailySchedule);
 }
