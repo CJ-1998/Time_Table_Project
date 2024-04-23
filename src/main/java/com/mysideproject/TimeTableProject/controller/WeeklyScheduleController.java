@@ -5,6 +5,7 @@ import com.mysideproject.TimeTableProject.domain.WeeklySchedule;
 import com.mysideproject.TimeTableProject.repository.WeeklyScheduleRepository;
 import com.mysideproject.TimeTableProject.service.WeeklyScheduleService;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -65,7 +66,12 @@ public class WeeklyScheduleController {
                                      RedirectAttributes redirectAttributes) {
         // 받은 데이터 서비스로 넘겨 저장 후 주간 계획표 넘김
         WeeklySchedule weeklySchedule = weeklyScheduleService.saveWeeklySchedule(weeklyScheduleDTO);
-        redirectAttributes.addAttribute("startDate", weeklySchedule.getStartDate());
+
+        // URL에 LocalDate 들어있으면 인코딩 시 이상하게 될 수 있어 아래처럼 format을 정해야 한다. 
+        LocalDate startDate = weeklySchedule.getStartDate();
+        redirectAttributes.addAttribute("startDate", startDate.format(DateTimeFormatter.ISO_LOCAL_DATE));
+        //redirectAttributes.addAttribute("startDate", weeklySchedule.getStartDate());
+
         return "redirect:/timetable/{startDate}";
     }
 
