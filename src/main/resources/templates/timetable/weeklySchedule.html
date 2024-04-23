@@ -96,6 +96,8 @@
 
 
 
+
+
     </style>
 </head>
 <body>
@@ -141,7 +143,8 @@
     <h1>일간 계획표</h1>
     <div>
         <ul th:each="dailySchedule : ${weeklySchedule.weeklyPlans}">
-            <li><a href="" th:text="|${dailySchedule.date} (${dailySchedule.weekDay})|"></a></li>
+            <li><a href="" th:href="@{|/timetable/dailySchedule/${dailySchedule.date}|}"
+                   th:text="|${dailySchedule.date} (${dailySchedule.weekDay})|"></a></li>
         </ul>
     </div>
 </div>
