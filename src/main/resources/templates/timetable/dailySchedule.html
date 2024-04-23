@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>일간 계획표</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif; /* 일반적으로 사용되는 웹 안전 폰트 */
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 24px;
+        }
+
+        .schedule-container {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-y: auto;
+            width: 100%;
+            max-height: 650px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            margin-right: 20px;
+        }
+
+        .schedule-table {
+            border-collapse: collapse;
+            width: 200px; /* 테이블 너비 자동 조정 */
+            margin-right: 0; /* 테이블 간 간격 */
+        }
+
+        .schedule-table th, .schedule-table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+            background-color: #f9f9f9;
+            height : 50px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* 패딩을 포함한 너비 계산 */
+        }
+
+        button[type="submit"] {
+            display: block;
+            width: 100%; /* 버튼 너비 조정 */
+            padding: 12px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        ul li a:hover {
+            text-decoration: underline;
+        }
+
+        div {
+            margin-bottom: 20px;
+        }
+
+
+
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+<div>
+    <h1 th:text="|${dailySchedule.date} 일간 계획표|">00.00.00 일간 계획표</h1>
+</div>
+
+<form>
+    <div class="schedule-container">
+        <table class="schedule-table">
+            <thead>
+            <th>시간</th>
+            </thead>
+            <tbody>
+            <tr th:each="plan : ${dailySchedule.dailyPlans}">
+                <td th:text="|${plan.startTime} ~ ${plan.endTime}|"></td>
+            </tr>
+            </tbody>
+        </table>
+        <table class="schedule-table">
+            <thead>
+            <th>계획</th>
+            </thead>
+            <tbody>
+            <tr th:each="plan: ${dailySchedule.dailyPlans}">
+                <td th:text="${plan.planContent}">공부</td>
+            </tr>
+            </tbody>
+        </table>
+        <table class="schedule-table">
+            <thead>
+            <th>실행</th>
+            </thead>
+            <tbody>
+            <tr th:each="plan: ${dailySchedule.dailyPlans}">
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+        <table class="schedule-table">
+            <thead>
+            <th>체크리스트</th>
+            </thead>
+            <tbody>
+            <tr th:each="plan: ${dailySchedule.dailyPlans}">
+                <td>
+                    <input type="radio" name="check">O
+                    <input type="radio" name="check">X
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</form>
+</body>
+</html>
