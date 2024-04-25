@@ -1,5 +1,12 @@
 package com.mysideproject.TimeTableProject.service;
 
+import static com.mysideproject.TimeTableProject.service.DateTimeConstants.DAY_COUNT;
+import static com.mysideproject.TimeTableProject.service.DateTimeConstants.HOUR_COUNT;
+import static com.mysideproject.TimeTableProject.service.DateTimeConstants.INTERVAL_MINUTE;
+import static com.mysideproject.TimeTableProject.service.DateTimeConstants.INTERVAL_PER_HOUR;
+import static com.mysideproject.TimeTableProject.service.DateTimeConstants.START_HOUR;
+import static com.mysideproject.TimeTableProject.service.DateTimeConstants.START_MINUTE;
+
 import com.mysideproject.TimeTableProject.DTO.DailyScheduleDTO;
 import com.mysideproject.TimeTableProject.DTO.PlanDTO;
 import com.mysideproject.TimeTableProject.DTO.WeeklyScheduleDTO;
@@ -24,13 +31,6 @@ public class WeeklyScheduleService {
     private final WeeklyScheduleRepository weeklyScheduleRepository;
     private final DailyScheduleRepository dailyScheduleRepository;
     private final PlanRepository planRepository;
-
-    // 상수 정의
-    public static final int DAY_COUNT = 7;
-    public static final int START_HOUR = 0;
-    public static final int START_MINUTE = 0;
-    public static final int HOUR_COUNT = 24;
-    public static final int INTERVAL_MINUTE = 30;
 
     //주간 계획표 초기화 메서드
     public WeeklySchedule initWeeklySchedule(LocalDate date) {
@@ -122,7 +122,7 @@ public class WeeklyScheduleService {
         LocalTime startTime = LocalTime.of(START_HOUR, START_MINUTE);
 
         // 시간 간격만큼 반복하여 시간 리스트에 추가
-        for (int timeCount = 0; timeCount < HOUR_COUNT * 2; timeCount++) {
+        for (int timeCount = 0; timeCount < HOUR_COUNT * INTERVAL_PER_HOUR; timeCount++) {
             timeIntervals.add(startTime);
             startTime = startTime.plusMinutes(INTERVAL_MINUTE);
         }
