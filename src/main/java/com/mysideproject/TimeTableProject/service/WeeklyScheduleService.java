@@ -103,7 +103,7 @@ public class WeeklyScheduleService {
             LocalTime endTime = startTime.plusMinutes(INTERVAL_MINUTE);
 
             // Plan 객체 생성 (planContent는 null로 설정)
-            Plan plan = new Plan(0L, date, startTime, endTime, null);
+            Plan plan = new Plan(0L, date, startTime, endTime, "");
             dailyPlans.add(plan);   // 일간 계획표에 시간별 계획 추가
 
             // 계획 저장소에 계획 객체 저장
