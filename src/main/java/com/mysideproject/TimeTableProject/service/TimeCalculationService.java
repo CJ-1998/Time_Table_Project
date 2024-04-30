@@ -10,7 +10,6 @@ import com.mysideproject.TimeTableProject.domain.Plan;
 import com.mysideproject.TimeTableProject.domain.PlanContentTime;
 import com.mysideproject.TimeTableProject.domain.WeeklySchedule;
 import com.mysideproject.TimeTableProject.repository.WeeklyScheduleRepository;
-import java.time.Duration;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -85,25 +84,24 @@ public class TimeCalculationService {
     private void processDailyPlans(List<Plan> dailyPlans, int index, Map<String, PlanContentTime> planContentHashMap) {
         for (Plan plan : dailyPlans) {
             String planContent = plan.getPlanContent();
-            if (planContent.equals("")) {
-                planContent = "계획 없음";
+            if (!planContent.equals("")) {
+                PlanContentTime planContentTime = planContentHashMap.getOrDefault(planContent,
+                        initPlanContentTime(planContent));
+                addTimeInPlanContentTime(index, planContentTime);
+                planContentHashMap.put(planContent, planContentTime);
             }
-            PlanContentTime planContentTime = planContentHashMap.getOrDefault(planContent,
-                    initPlanContentTime(planContent));
-            addTimeInPlanContentTime(index, planContentTime);
-            planContentHashMap.put(planContent, planContentTime);
         }
     }
 
     // PlanContentTime 초기화 하는 메서드
     private PlanContentTime initPlanContentTime(String planContent) {
-        Duration totalHoursInWeek = Duration.ofMinutes(0);
+        Double totalHoursInWeek = 0.0;
         Double totalPercentInWeek = 0.0;
-        List<Duration> hoursPerDayOfWeek = new ArrayList<>();
+        List<Double> hoursPerDayOfWeek = new ArrayList<>();
 
         for (int i = 0; i < DAY_COUNT; i++) {
-            Duration duration = Duration.ofMinutes(0);
-            hoursPerDayOfWeek.add(duration);
+            Double planContentTime = 0.0;
+            hoursPerDayOfWeek.add(planContentTime);
         }
 
         return new PlanContentTime(planContent, totalHoursInWeek, totalPercentInWeek, hoursPerDayOfWeek);
@@ -111,9 +109,10 @@ public class TimeCalculationService {
 
     // PlanContentTime의 리스트에 특정 날짜를 의미하는 index에 시간 더하는 메서드
     private void addTimeInPlanContentTime(int index, PlanContentTime planContentTime) {
-        List<Duration> hoursPerDayOfWeek = planContentTime.getHoursPerDayOfWeek();
-        Duration hoursInDay = hoursPerDayOfWeek.get(index);
-        hoursInDay.plusMinutes(INTERVAL_MINUTE);
+        List<Double> hoursPerDayOfWeek = planContentTime.getHoursPerDayOfWeek();
+        Double hoursInDay = hoursPerDayOfWeek.get(index);
+        Double addTime = ((double) INTERVAL_MINUTE / (double) MINUTES_IN_HOUR);
+        hoursPerDayOfWeek.add(index, hoursInDay + addTime);
     }
 
     // 각 PlanContentTime의 전체 시간, 퍼센트를 계산하는 메서드
@@ -125,11 +124,11 @@ public class TimeCalculationService {
 
     // 각 planContent의 총 시간 계산하는 메서드
     private void calculateTimeInPlanContentTime(PlanContentTime planContentTime) {
-        Duration totalTime = Duration.ofMinutes(0);
-        List<Duration> hoursPerDayOfWeek = planContentTime.getHoursPerDayOfWeek();
+        Double totalTime = 0.0;
+        List<Double> hoursPerDayOfWeek = planContentTime.getHoursPerDayOfWeek();
 
-        for (Duration duration : hoursPerDayOfWeek) {
-            totalTime.plus(duration);
+        for (Double oneDayTotalTime : hoursPerDayOfWeek) {
+            totalTime += oneDayTotalTime;
         }
 
         planContentTime.setTotalHoursInWeek(totalTime);
@@ -140,8 +139,8 @@ public class TimeCalculationService {
     }
 
     // 각 planContent의 퍼센트를 계산하는 메서드
-    private Double calculatePercentInPlanContentTime(Duration totalHoursInWeek) {
-        Double hours = totalHoursInWeek.toMinutes() / (double) MINUTES_IN_HOUR;
+    private Double calculatePercentInPlanContentTime(Double totalHoursInWeek) {
+        Double hours = totalHoursInWeek / (double) MINUTES_IN_HOUR;
 
         return (hours / (double) TOTAL_HOURS_IN_WEEK) * 100;
     }

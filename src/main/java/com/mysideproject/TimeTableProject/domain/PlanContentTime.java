@@ -1,6 +1,5 @@
 package com.mysideproject.TimeTableProject.domain;
 
-import java.time.Duration;
 import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,12 +8,12 @@ import lombok.Setter;
 @Setter
 public class PlanContentTime {
     private String planContent;
-    private Duration totalHoursInWeek;
+    private Double totalHoursInWeek;
     private Double totalPercentInWeek;
-    private List<Duration> hoursPerDayOfWeek;
+    private List<Double> hoursPerDayOfWeek;
 
-    public PlanContentTime(String planContent, Duration totalHoursInWeek, Double totalPercentInWeek,
-                           List<Duration> hoursPerDayOfWeek) {
+    public PlanContentTime(String planContent, Double totalHoursInWeek, Double totalPercentInWeek,
+                           List<Double> hoursPerDayOfWeek) {
         this.planContent = planContent;
         this.totalHoursInWeek = totalHoursInWeek;
         this.totalPercentInWeek = totalPercentInWeek;
