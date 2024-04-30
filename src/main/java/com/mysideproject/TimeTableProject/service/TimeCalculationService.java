@@ -72,36 +72,6 @@ public class TimeCalculationService {
         return planContentTimes;
     }
 
-    // 각 PlanContentTime의 전체 시간, 퍼센트를 계산하는 메서드
-    private void finalizePlanContentTimes(List<PlanContentTime> planContentTimes) {
-        for (PlanContentTime planContentTime : planContentTimes) {
-            calculateTimeInPlanContentTime(planContentTime);
-        }
-    }
-
-    // 각 planContent의 총 시간 계산하는 메서드
-    private void calculateTimeInPlanContentTime(PlanContentTime planContentTime) {
-        Duration totalTime = Duration.ofMinutes(0);
-        List<Duration> hoursPerDayOfWeek = planContentTime.getHoursPerDayOfWeek();
-
-        for (Duration duration : hoursPerDayOfWeek) {
-            totalTime.plus(duration);
-        }
-
-        planContentTime.setTotalHoursInWeek(totalTime);
-
-        Double totalPercentInWeek = calculatePercentInPlanContentTime(planContentTime.getTotalHoursInWeek());
-
-        planContentTime.setTotalPercentInWeek(totalPercentInWeek);
-    }
-
-    // 각 planContent의 퍼센트를 계산하는 메서드
-    private Double calculatePercentInPlanContentTime(Duration totalHoursInWeek) {
-        Double hours = totalHoursInWeek.toMinutes() / (double) MINUTES_IN_HOUR;
-
-        return (hours / (double) TOTAL_HOURS_IN_WEEK) * 100;
-    }
-
     // 일간 계획표마다 시간 계산하는 메서드
     private void processWeeklyPlans(List<DailySchedule> weeklyPlans, Map<String, PlanContentTime> planContentHashMap) {
         int index = 0;
@@ -141,5 +111,35 @@ public class TimeCalculationService {
         List<Duration> hoursPerDayOfWeek = planContentTime.getHoursPerDayOfWeek();
         Duration hoursInDay = hoursPerDayOfWeek.get(index);
         hoursInDay.plusMinutes(INTERVAL_MINUTE);
+    }
+
+    // 각 PlanContentTime의 전체 시간, 퍼센트를 계산하는 메서드
+    private void finalizePlanContentTimes(List<PlanContentTime> planContentTimes) {
+        for (PlanContentTime planContentTime : planContentTimes) {
+            calculateTimeInPlanContentTime(planContentTime);
+        }
+    }
+
+    // 각 planContent의 총 시간 계산하는 메서드
+    private void calculateTimeInPlanContentTime(PlanContentTime planContentTime) {
+        Duration totalTime = Duration.ofMinutes(0);
+        List<Duration> hoursPerDayOfWeek = planContentTime.getHoursPerDayOfWeek();
+
+        for (Duration duration : hoursPerDayOfWeek) {
+            totalTime.plus(duration);
+        }
+
+        planContentTime.setTotalHoursInWeek(totalTime);
+
+        Double totalPercentInWeek = calculatePercentInPlanContentTime(planContentTime.getTotalHoursInWeek());
+
+        planContentTime.setTotalPercentInWeek(totalPercentInWeek);
+    }
+
+    // 각 planContent의 퍼센트를 계산하는 메서드
+    private Double calculatePercentInPlanContentTime(Duration totalHoursInWeek) {
+        Double hours = totalHoursInWeek.toMinutes() / (double) MINUTES_IN_HOUR;
+
+        return (hours / (double) TOTAL_HOURS_IN_WEEK) * 100;
     }
 }
