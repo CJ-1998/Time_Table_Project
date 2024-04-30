@@ -27,4 +27,7 @@ public class DateTimeConstants {
 
     // 한 시간에 시간 단위 개수 나타내는 상수
     public static final int INTERVAL_PER_HOUR = MINUTES_IN_HOUR / INTERVAL_MINUTE;
+
+    // 일주일 전체 시간 나타내는 상수
+    public static final int TOTAL_HOURS_IN_WEEK = DAY_COUNT * HOUR_COUNT;
 }
