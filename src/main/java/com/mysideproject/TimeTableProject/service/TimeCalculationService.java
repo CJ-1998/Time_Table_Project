@@ -85,6 +85,9 @@ public class TimeCalculationService {
     private void processDailyPlans(List<Plan> dailyPlans, int index, Map<String, PlanContentTime> planContentHashMap) {
         for (Plan plan : dailyPlans) {
             String planContent = plan.getPlanContent();
+            if (planContent == null || planContent.equals("")) {
+                planContent = "계획 없음";
+            }
             PlanContentTime planContentTime = planContentHashMap.getOrDefault(planContent,
                     initPlanContentTime(planContent));
             addTimeInPlanContentTime(index, planContentTime);
