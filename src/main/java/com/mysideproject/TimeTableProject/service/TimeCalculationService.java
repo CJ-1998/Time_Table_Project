@@ -112,7 +112,7 @@ public class TimeCalculationService {
         List<Double> hoursPerDayOfWeek = planContentTime.getHoursPerDayOfWeek();
         Double hoursInDay = hoursPerDayOfWeek.get(index);
         Double addTime = ((double) INTERVAL_MINUTE / (double) MINUTES_IN_HOUR);
-        hoursPerDayOfWeek.add(index, hoursInDay + addTime);
+        hoursPerDayOfWeek.set(index, hoursInDay + addTime);
     }
 
     // 각 PlanContentTime의 전체 시간, 퍼센트를 계산하는 메서드
