@@ -101,6 +101,10 @@
 
 
 
+
+
+
+
     </style>
 </head>
 <body>
@@ -206,7 +210,7 @@
             </thead>
             <tbody>
             <tr th:each="planContentTime : ${planContentTimes}">
-                <td th:text="|${planContentTime.totalPercentInWeek}%|"></td>
+                <td th:text="|${#numbers.formatDecimal(planContentTime.totalPercentInWeek, 1, 2)}%|"></td>
             </tr>
             </tbody>
         </table>

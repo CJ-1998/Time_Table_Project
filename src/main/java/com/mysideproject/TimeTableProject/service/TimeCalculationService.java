@@ -140,7 +140,7 @@ public class TimeCalculationService {
 
     // 각 planContent의 퍼센트를 계산하는 메서드
     private Double calculatePercentInPlanContentTime(Double totalHoursInWeek) {
-        Double hours = totalHoursInWeek / (double) MINUTES_IN_HOUR;
+        Double hours = totalHoursInWeek;
 
         return (hours / (double) TOTAL_HOURS_IN_WEEK) * 100;
     }
