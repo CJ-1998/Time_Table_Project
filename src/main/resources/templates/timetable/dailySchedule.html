@@ -97,13 +97,6 @@
 
 
 
-
-
-
-
-
-
-
     </style>
 </head>
 <body>
@@ -111,7 +104,7 @@
     <h1 th:text="|${dailySchedule.date} 일간 계획표|">00.00.00 일간 계획표</h1>
 </div>
 
-<form>
+<form action="" method="post">
     <div class="schedule-container">
         <table class="schedule-table">
             <thead>
@@ -139,7 +132,7 @@
             </thead>
             <tbody>
             <tr th:each="plan: ${dailySchedule.dailyPlans}">
-                <td></td>
+                <td><input type="text"></td>
             </tr>
             </tbody>
         </table>
@@ -148,15 +141,16 @@
             <th>체크리스트</th>
             </thead>
             <tbody>
-            <tr th:each="plan: ${dailySchedule.dailyPlans}">
+            <tr th:each="plan, idx: ${dailySchedule.dailyPlans}">
                 <td>
-                    <input type="radio" name="check">O
-                    <input type="radio" name="check">X
+                    <input type="radio" th:id="|radio${idx.index}|" th:name="|check${idx.index}|">O
+                    <input type="radio" th:id="|radio${idx.index}|" th:name="|check${idx.index}|">X
                 </td>
             </tr>
             </tbody>
         </table>
     </div>
+    <button type="submit">저장</button>
 </form>
 </body>
 </html>
