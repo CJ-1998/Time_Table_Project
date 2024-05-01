@@ -105,6 +105,7 @@
 
 
 
+
     </style>
 </head>
 <body>
@@ -130,7 +131,7 @@
             </thead>
             <tbody>
             <tr th:each="planContentTime : ${planContentTimes}">
-                <td th:text="${planContentTime.hoursPerDayOfWeek[0]}"></td>
+                <td th:text="|${planContentTime.hoursPerDayOfWeek[0]}H|"></td>
             </tr>
             </tbody>
         </table>
@@ -140,7 +141,7 @@
             </thead>
             <tbody>
             <tr th:each="planContentTime : ${planContentTimes}">
-                <td th:text="${planContentTime.hoursPerDayOfWeek[1]}"></td>
+                <td th:text="|${planContentTime.hoursPerDayOfWeek[1]}H|"></td>
             </tr>
             </tbody>
         </table>
@@ -150,7 +151,7 @@
             </thead>
             <tbody>
             <tr th:each="planContentTime : ${planContentTimes}">
-                <td th:text="${planContentTime.hoursPerDayOfWeek[2]}"></td>
+                <td th:text="|${planContentTime.hoursPerDayOfWeek[2]}H|"></td>
             </tr>
             </tbody>
         </table>
@@ -160,7 +161,7 @@
             </thead>
             <tbody>
             <tr th:each="planContentTime : ${planContentTimes}">
-                <td th:text="${planContentTime.hoursPerDayOfWeek[3]}"></td>
+                <td th:text="|${planContentTime.hoursPerDayOfWeek[3]}H|"></td>
             </tr>
             </tbody>
         </table>
@@ -170,7 +171,7 @@
             </thead>
             <tbody>
             <tr th:each="planContentTime : ${planContentTimes}">
-                <td th:text="${planContentTime.hoursPerDayOfWeek[4]}"></td>
+                <td th:text="|${planContentTime.hoursPerDayOfWeek[4]}H|"></td>
             </tr>
             </tbody>
         </table>
@@ -180,7 +181,7 @@
             </thead>
             <tbody>
             <tr th:each="planContentTime : ${planContentTimes}">
-                <td th:text="${planContentTime.hoursPerDayOfWeek[5]}"></td>
+                <td th:text="|${planContentTime.hoursPerDayOfWeek[5]}H|"></td>
             </tr>
             </tbody>
         </table>
@@ -190,7 +191,7 @@
             </thead>
             <tbody>
             <tr th:each="planContentTime : ${planContentTimes}">
-                <td th:text="${planContentTime.hoursPerDayOfWeek[6]}"></td>
+                <td th:text="|${planContentTime.hoursPerDayOfWeek[6]}H|"></td>
             </tr>
             </tbody>
         </table>
@@ -200,7 +201,7 @@
             </thead>
             <tbody>
             <tr th:each="planContentTime : ${planContentTimes}">
-                <td th:text="${planContentTime.totalHoursInWeek}"></td>
+                <td th:text="|${planContentTime.totalHoursInWeek}H|"></td>
             </tr>
             </tbody>
         </table>
